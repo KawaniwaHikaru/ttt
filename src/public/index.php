@@ -67,7 +67,7 @@ $app->post(
 
 		} else {
 
-			$game->refresh();
+			//$game->refresh();
 
 			$response->setContent($game->prettyPrint());
 		}
