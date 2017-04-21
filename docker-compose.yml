@@ -4,10 +4,11 @@ services:
     db:
       image: mysql
       volumes:
-        - ./db:/var/lib/mysql
+        - ./src/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+        - ./db:/var/lib/mysql:rw
       environment:
         - MYSQL_ROOT_PASSWORD=tictactoe
-
+  
     restful:
       image: eboraas/phalcon
       volumes:
