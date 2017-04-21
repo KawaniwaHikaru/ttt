@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+    db:
+      image: mysql
+      volumes:
+        - ./db:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=tictactoe
+
+    restful:
+      image: eboraas/phalcon
+      volumes:
+        - ./src:/var/www/phalcon
+      ports:
+        - "80:80"
+      depends_on:
+        - db
