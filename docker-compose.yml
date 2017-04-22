@@ -1,19 +1,20 @@
-version: '2'
+version: '2.1'
 services:
 
-    db:
-      image: mysql
-      volumes:
-        - ./src/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
-        - ./db:/var/lib/mysql:rw
-      environment:
-        - MYSQL_ROOT_PASSWORD=tictactoe
-  
-    restful:
-      image: eboraas/phalcon
-      volumes:
-        - ./src:/var/www/phalcon
-      ports:
-        - "80:80"
-      depends_on:
-        - db
+  db:
+    image: mysql
+    volumes:
+      - ./src/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - ./db:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=tictactoe
+
+  phalcon:
+    image: eboraas/phalcon
+    # image: mileschou/phalcon
+    volumes:
+      - ./src:/var/www/phalcon
+    ports:
+      - "80:80"
+    depends_on:
+      - db
