@@ -96,7 +96,7 @@ $app->get(
 
 	});
 
-$app->put(
+$app->patch(
 	"/api/v1/game/{id:[0-9]+}",
 	function ($id) use ($app) {
 		$move = $app->request->getJsonRawBody();

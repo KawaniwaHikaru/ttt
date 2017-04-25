@@ -59,7 +59,7 @@ To Create more game, just keep posting to the /game endpoint
 the following curl places O in the center of the board (position 3, type O)
 
 ```bash
-curl -i localhost/api/v1/game/1 -X PUT -d '{"type":"O","where":4}'
+curl -i localhost/api/v1/game/1 -X PATCH -d '{"type":"O","where":4}'
 
 HTTP/1.1 200 OK
 Date: Fri, 21 Apr 2017 18:13:59 GMT
